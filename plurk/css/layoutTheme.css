@@ -58,7 +58,7 @@
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk .plurk_cnt .tr_cnt > .td_cnt { padding: 5px; }
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk .plurk_cnt .text_holder { width: 100%; min-height: 2em; max-height: 48px; transition: max-height .2s ease-out; }
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk .plurk_cnt .manager { display: block; visibility: hidden; height: 0; padding-top: 0; margin-top: 0; }
-._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk .plurk_cnt .manager > a { color: #b496d2; }
+._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk .plurk_cnt .manager > a { color: #a587d2; }
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk.link_extend .plurk_cnt .text_holder { max-height: 900px !important; transition: max-height .3s ease-in; }
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk.link_extend .plurk_cnt .manager { visibility: visible; height: auto; padding-top: 3px; margin-top: 4px; }
 ._lch_ > ._lc_ > .plurk_box { border: 1px solid #000; border-top: 0px; }
@@ -87,10 +87,10 @@
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-form #main_poster > .plurkForm > .drop_indicator { order: 6; }
 /* 頭像自介區 */
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left { position: fixed !important; top: 150px; right: -176px; width: 300px; padding: 10px 10px 10px 12px; color: white; background: rgba(0, 0, 0, 0.8); border-radius: 60px 0 0 60px; z-index: 2000; max-height: 120px; overflow: hidden; transition: max-height .3s ease-out, right .6s, border-radius 0.3s; }
-._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left:hover { max-height: 34%; right: 0; border-radius: 8px 0 0 8px; }
+._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left:hover { max-height: 500px; right: 0; border-radius: 8px 0 0 8px; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left:hover ~ .dash-group-right { right: -290px; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left:has(~ .dash-group-right:hover),
-._lch_:has(~ .karma_tooltip:hover) > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left { max-height: 34%; right: 298px; border-radius: 8px 0 8px 8px;  }
+._lch_:has(~ .karma_tooltip:hover) > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left { max-height: 500px; right: 298px; border-radius: 8px 0 8px 8px; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left > .dash-segment > .segment-content { margin: 0; padding: 0; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left #dash-profile { height: 100px; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-left #dash-profile #profile_pic { width: 100px; height: 100px; border-radius: 50%; margin: 0; }
