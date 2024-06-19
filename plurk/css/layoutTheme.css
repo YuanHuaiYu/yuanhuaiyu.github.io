@@ -1,11 +1,14 @@
 /* 全域字體 */
-[_='{'], body, textarea, input, button, select, :is(}) { font-family: '等距更紗黑體 TC', 'Victor Mono', 'Georgia', serif !important; }
+[_='{'], body, textarea, input, button, select, :is(}) { font-family: '等距更紗黑體 TC', 'Georgia', serif !important; }
 
 /* 客製化 ScrollBar */
 [_='{'], body, :is(}) { overflow-y: auto !important; scrollbar-width: thin; }
 [_='{'], body ::-webkit-scrollbar, :is(}) { height: 5px; width: 5px; }
 [_='{'], body ::-webkit-scrollbar-track, :is(}) { border-radius: 10px; }
 [_='{'], body ::-webkit-scrollbar-thumb, :is(}) { border-radius: 5px; background: #999; }
+
+/* top_bar 顏色 */
+[_='{'], #top_bar > .bar-color, :is(}) { background: rgba(0, 0, 0, .4) !important; }
 
 /* 主結構 */
 ._lch_ { height: 100%; }
@@ -59,6 +62,11 @@
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk.link_extend .plurk_cnt .text_holder { max-height: 900px !important; transition: max-height .3s ease-in; }
 ._lch_ > ._lc_ > #timeline_holder > .timeline-cnt > .block_cnt > .plurk.link_extend .plurk_cnt .manager { visibility: visible; height: auto; padding-top: 3px; margin-top: 4px; }
 ._lch_ > ._lc_ > .plurk_box { border: 1px solid #000; border-top: 0px; }
+
+/* timeline 顏色 */
+._lch_ > ._lc_ > #timeline_holder > #timeline_bg #bottom_line,
+._lch_ > ._lc_ > #timeline_holder > #timeline_bg .bottom_start,
+._lch_ > ._lc_ > #timeline_holder > #timeline_bg .bottom_end { background: #1e96e1; color: #fff; }
 
 /* 個人資訊大改 */
 /* 發文區 */
