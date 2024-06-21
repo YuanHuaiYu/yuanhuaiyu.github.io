@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
-    <title>Page not found &middot;GitHub Pages</title>
+    <title>Page not found &middot; GitHub Pages</title>
     <style type="text/css" media="screen">
       body { background-color: #f1f1f1; margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
       .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
@@ -29,6 +29,27 @@
       #suggestions { margin-top: 35px; color: #ccc; }
       #suggestions a { color: #666666; font-weight: 200; font-size: 14px; margin: 0 10px; }
     </style>
+    <script type="text/javascript">
+      // 設定SPA重新導向規則
+      var spaProjects = [
+        '/trpgtools/savage-worlds/'
+      ];
+      
+      var target = null;
+      var l = window.location;
+      for (var i = 0; i < spaProjects.length; i++) {
+        if (l.pathname.indexOf(spaProjects[i]) === 0) {
+          target = spaProjects[i];
+          break;
+        }
+      }
+      if (target !== null) {
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + target + '?/' +
+          (l.pathname.slice(target.length) + (l.search ? '&' + l.search.slice(1): '')).replace(/&/g, '«and»') + l.hash
+        );
+      }
+    </script>
   </head>
   <body>
     <div class="container">
