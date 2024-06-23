@@ -1,1 +1,0 @@
-import{d as e,o as t,c as a,e as o,f as s,u as n,R as r}from"./index-9ROLDq6H.js";const c={layout:"DefaultLayout"},i=e({__name:"index",setup(u){return(_,d)=>(t(),a("div",c,[o(" DefaultLayout "),s(n(r))]))}});export{i as default};
