@@ -130,6 +130,12 @@
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-right > .dash-segment-award .link_arrow { margin-top: 5px; }
 ._lch_ > ._lc_ > #dashboard_holder > #plurk-dashboard > .dash-group-right a { color: #ff5a4b; }
 
+
+/* 我的書籤頁 */
+._lch_ > ._lc_:has(>#bookmarks-nothing[style="display: none;"]) { grid-template-rows: max-content max-content 1fr max-content; }
+._lch_ > ._lc_:has(>#bookmarks-nothing[style="display: block;"]) { grid-template-rows: max-content max-content max-content 1fr max-content; }
+
+
 /* Sarasa Mono TC */
 @font-face { font-family: '等距更紗黑體 TC'; font-style: normal; font-weight: 200; font-display: swap; src: url(https://yuanhuaiyu.github.io/fonts/SarasaMonoTC/SarasaMonoTC-ExtraLight.woff2) format('woff2'); }
 @font-face { font-family: '等距更紗黑體 TC'; font-style: italic; font-weight: 200; font-display: swap; src: url(https://yuanhuaiyu.github.io/fonts/SarasaMonoTC/SarasaMonoTC-ExtraLightItalic.woff2) format('woff2'); }
