@@ -1,0 +1,1 @@
+import{_ as e,o,c as s,a as t}from"./index-C_uFdLRE.js";const c={},n={class:"not-found"},a=t("h1",null,"This is an 404 page",-1),_=[a];function r(d,i){return o(),s("div",n,_)}const l=e(c,[["render",r]]);export{l as default};

@@ -1,1 +1,0 @@
-import{f as t,e as o,o as s,c as a,d as n,b as c}from"./index-Bnodja70.js";const r={class:"layout test2-layout"},d=t({__name:"index",setup(_){return console.log("PAGE: test2Layout"),(l,p)=>{const e=o("RouterView");return s(),a("div",r,[n(" test2 "),c(e)])}}});export{d as default};
