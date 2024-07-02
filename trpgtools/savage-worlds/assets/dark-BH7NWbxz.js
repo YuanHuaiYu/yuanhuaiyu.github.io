@@ -1,0 +1,1 @@
+const o="[theme=dark]:root{--color-heading: #f0f0f0;--color-text: #f0f0f0;--color-border: #f0f0f0;--color-background: #1e1e1e;--color-scrollbar-track: rgba(0,0,0,0);--color-scrollbar-thumb: #5a5a5a;--color-scrollbar-thumb-hover: #787878;--color-gray: #5a5a5a}";export{o as default};

@@ -1,0 +1,1 @@
+import{e as t,g as o,o as s,c as a,d as n,b as c}from"./index-DkhTeGlZ.js";const r={class:"layout test1-layout"},d=t({__name:"index",setup(_){return console.log("PAGE: test1Layout"),(l,p)=>{const e=o("RouterView");return s(),a("div",r,[n(" test1 "),c(e)])}}});export{d as default};
