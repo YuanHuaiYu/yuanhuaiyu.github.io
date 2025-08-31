@@ -8,6 +8,9 @@
      * 3. 將此腳本完整貼到 Console 中並執行。
      * 4. 可在 `new Roll20MapSaver(100)` 中傳入想要的縮放百分比。
      * 5. 地圖縮圖將出現在左上角，右鍵可另存，左鍵可刪除。
+     * 
+     * 新增了截取UI層的方法：
+     * 但需要手動載入 https://html2canvas.hertzen.com/dist/html2canvas.min.js 的內容，才能生效。
      */
     class Roll20MapSaver {
         constructor(zoomSize = 100) {
@@ -25,6 +28,7 @@
                     sidebarHidden: 'body.sidebarhidden #rightsidebar',
                     zoomMenuButtons: '.zoomDubMenuBtnStyle .el-button',
                     outputImage: '#roll20-map-save',
+                    uiLayer: '#vm-tabletop-ui-layer'
                 },
             };
 
@@ -35,6 +39,7 @@
                 originalZoom: 100,
                 isJumpGate: false,
                 shouldRestoreSidebar: false,
+                haveHtml2canvas: false,
                 elements: {}
             };
         }
@@ -85,6 +90,12 @@
                 document.querySelector(this.config.selectors.sidebarToggle).click();
                 await this.waitForUI(100); // 等待側邊欄動畫
             }
+
+            this.state.haveHtml2canvas = html2canvas ? 1 : 2;
+            if (this.state.haveHtml2canvas) {
+                // 讓 ui 有高度，否則無法截取
+                document.getElementById('vm-tabletop-ui-layer').style.height = '100vh';
+            }
         }
 
         /**
@@ -123,6 +134,20 @@
                     await this.captureTile(ctx, ox, oy, width, height, scale);
                     console.log(`進度: ${Math.floor(++progress / tileCount * 100)}%`);
                 }
+            }
+
+            if (this.state.haveHtml2canvas) {
+                // 截取ui層
+                let progress = 0;
+                for (let oy = 0; oy < height; oy += finalCanvas.height) {
+                    for (let ox = 0; ox < width; ox += finalCanvas.width) {
+                        this.scrollCanvas(ox, oy, scale, paddingTop, paddingLeft);
+                        await this.awaitNextFrame(); // 等待滾動生效
+                        await this.captureUiTile(ctx, ox, oy, width, height, scale);
+                        console.log(`Ui層進度: ${Math.floor(++progress / tileCount * 100)}%`);
+                    }
+                }
+                document.getElementById('vm-tabletop-ui-layer').style.height = '100vh';
             }
 
             const url = outputCanvas.toDataURL();
@@ -185,6 +210,25 @@
         }
 
         /**
+         * 擷取單一UI圖塊，包含重試邏輯
+         */
+        async captureUiTile(ctx, ox, oy, mapWidth, mapHeight, scale) {
+            const dpr = window.devicePixelRatio;
+            const { finalCanvas } = this.state.elements;
+            await this.setZoom(this.reRenderZoom);
+            await this.setZoom(this.zoom);
+            window.Campaign.view.render();
+
+            const destX = Math.floor(ox + finalCanvas.parentElement.offsetLeft * scale);
+            const destY = Math.floor(oy + finalCanvas.parentElement.offsetTop * scale);
+            const canvas = await html2canvas(document.querySelector(this.config.selectors.uiLayer), {
+                backgroundColor: null
+            });
+            ctx.drawImage(canvas, 0, 0, mapWidth, mapHeight, destX, destY, mapWidth / dpr, mapHeight / dpr);
+        }
+
+
+        /**
          * 在頁面上顯示最終的圖片縮圖
          * @param {string} url - 圖片的 Data URL
          */
@@ -194,7 +238,7 @@
             const img = document.createElement('img');
             img.id = this.config.selectors.outputImage.substring(1);
             Object.assign(img.style, {
-                position: 'fixed', top: '1rem', left: '8rem', width: '10rem',
+                position: 'fixed', top: '1rem', left: '8rem', height: '75vh',
                 zIndex: '10000000', cursor: 'pointer', border: 'solid 1px red',
             });
             img.title = '右鍵點擊 -> 另存圖片/在新分頁中開啟圖片，左鍵點擊可刪除';
@@ -223,6 +267,10 @@
             }
             if (this.state.shouldRestoreSidebar) {
                 document.querySelector(this.config.selectors.sidebarToggle).click();
+            }
+            
+            if (this.state.haveHtml2canvas) {
+                document.getElementById('vm-tabletop-ui-layer').style.height = null;
             }
         }
 
