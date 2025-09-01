@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WWS3 線下活動邀請函</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <style>
+
+      html, body { margin: 0; padding: 0; min-height: 100%; display: grid; grid-auto-rows: auto; grid-template-rows: 1fr; grid-row: 1; box-sizing: border-box; }
+      body {
+        font-family: 'LXGW WenKai Mono TC', sans-serif;
+        width: 100%; min-width: 320px; line-height: 1.5; font-size: 16px; font-weight: 400;
+        color: #4a2c2a; background: url('https://img.freepik.com/premium-photo/natural-japanese-recycled-paper-texture_118047-530.jpg'), #f0e8d8;
+        text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      }
+
+      #app { padding: 2rem; }
+      #app > .invitation-card { max-width: 800px; margin: 0 auto; background: url(https://img.freepik.com/premium-photo/grunge-background_87394-4700.jpg) center / cover, #fffaf0; border: 10px solid #8b4513; border-style: double; padding: 2rem 3rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); text-align: center; }
+
+      header > h1 { font-size: 3rem; color: #800000; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+      header > .subtitle { font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; color: #5a3a3a; }
+
+      main > p { text-align: left; margin-bottom: 1rem; }
+      main > .greeting { font-size: 1.2rem; font-weight: bold; margin-top: 2rem; }
+      main > section { margin-top: 2.5rem; text-align: left; border-top: 2px dashed #8b4513; padding-top: 1.5rem; }
+      main > section > h2 { font-size: 2rem; text-align: center; margin-top: 0; margin-bottom: 1.5rem; }
+
+      main > section > ul { list-style: none; padding: 0; }
+      main > section > ul > li { margin-bottom: 1.5rem; }
+      main > section.details > ul > li { margin-bottom: 0.5rem; }
+      main > section > ul > li > strong { font-size: 1.1rem; color: #800000; }
+      main > section > ul > li > p { margin: 0.25rem 0 0 0; padding-left: 1rem; }
+      main > section > ul > li a { color: #800000; text-decoration: underline; }
+      main > section > ul > li.break-time { text-align: center; font-style: italic; color: #5a3a3a; padding: 1rem 0; }
+
+      footer { margin-top: 3rem; font-style: italic; font-weight: bold; color: #5a3a3a; }
+
+      @media (max-width: 600px) {
+        #app > .invitation-card { padding: 1.5rem; }
+        header > h1 { font-size: 2.2rem; }
+        main > section > h2 { font-size: 1.8rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="invitation-card">
+        <header>
+          <h1>詭野西部豪俠召集令！</h1>
+          <p class="subtitle">WWS3 線下活動邀請函</p>
+        </header>
+        <main>
+          <p class="greeting">嘿，各位夥伴！</p>
+          <p>塵土飛揚的西部荒野即將迎來一場傳奇聚會。備好你的左輪與骰子，我們將在現實世界中集結，展開一場史詩般的D&D冒險！</p>
+          <section class="itinerary">
+            <h2>當日行程</h2>
+            <ul>
+              <li>
+                <strong>第一站：午後對決 (D&D 面團)</strong>
+                <p>時間：2025年10月18日 (星期六) 下午 1:00 - 5:00</p>
+                <p>地點：
+                  <a href="https://www.google.com/maps/search/?api=1&query=404台中市北區進化北路370號泰坦圓桌TRPG" target="_blank" rel="noopener noreferrer">泰坦圓桌 (台中市北區進化北路370號)</a>
+                </p>
+                <p>內容：我們將繼續深入惡地，尋找女神的遺骨，為破解亡命之輪的詛咒踏出堅實的一步。</p>
+                <p>ＤＭ：藍寶、霜葉</p>
+                <p>玩家：189、SOFA、alviss、pey、ping、ㄕㄩ、小熊、小米、璐璐、艾仕龍、蘭棋斯、路、阿玄、阿蚊、霜月 (15人)。</p>
+                <p>備註：玩家太多了，並且到時候適合同一團的成員有誰還未知，可能之後在分配？</p>
+              </li>
+              <li class="break-time">
+                <p>--- 休息與移動時間 (2小時) ---</p>
+              </li>
+              <li>
+                <strong>第二站：酒館狂歡 (KTV 歡唱)</strong>
+                <p>時間：2025年10月18日 (星期六) 晚上 7:00 - 1:00</p>
+                <p>地點：
+                  <a href="https://www.google.com/maps/search/?api=1&query=403台中市西區臺灣大道二段16號凱悅YESKTV台中店" target="_blank" rel="noopener noreferrer">凱悅 YES KTV (台中市西區臺灣大道二段16號)</a>
+                </p>
+                <p>內容：放下武器，拿起麥克風！在歌聲與歡笑中，為我們一天的冒險劃下完美句號。</p>
+                <p>歌手：189、SOFA、alviss、pey、ping、ㄕㄩ、小熊、小米、蘭棋斯、路、阿玄、阿蚊、霜月、霜葉 (14人)。</p>
+              </li>
+            </ul>
+          </section>
+          <section class="details">
+            <h2>注意事項</h2>
+            <ul>
+              <li>請攜帶你的角色卡、個人骰子以及一顆冒險的心。</li>
+              <li>歡迎穿戴任何具有西部風格的服飾或配件！</li>
+            </ul>
+          </section>
+        </main>
+        <footer>
+          <p>期待在夕陽下的決鬥場與你相見！</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
