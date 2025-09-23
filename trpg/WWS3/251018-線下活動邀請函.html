@@ -19,8 +19,10 @@
       }
 
       #app { padding: 2rem; }
-      #app > .invitation-card { max-width: 800px; margin: 0 auto; background: url(https://img.freepik.com/premium-photo/grunge-background_87394-4700.jpg) center / cover, #fffaf0; border: 10px solid #8b4513; border-style: double; padding: 2rem 3rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); text-align: center; }
+      #app > .invitation-card { max-width: 800px; margin: 0 auto; background: url('https://img.freepik.com/premium-photo/grunge-background_87394-4700.jpg') top center / cover, #fffaf0; border: 10px solid #8b4513; border-style: double; padding: 1rem 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; }
 
+      header > .header-decoration { color: #8b4513; margin: 0.5rem 0; opacity: 0.7; }
+      header > .header-decoration > svg { width: 80%; max-width: 400px; height: auto; }
       header > h1 { font-size: 3rem; color: #800000; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
       header > .subtitle { font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; color: #5a3a3a; }
 
@@ -31,19 +33,35 @@
 
       main > section > ul { list-style: none; padding: 0; }
       main > section > ul > li { margin-bottom: 1.5rem; }
-      main > section.details > ul > li { margin-bottom: 0.5rem; }
+      main > section.details > ul > li { margin-bottom: 0.75rem; }
       main > section > ul > li > strong { font-size: 1.1rem; color: #800000; }
       main > section > ul > li > p { margin: 0.25rem 0 0 0; padding-left: 1rem; }
       main > section > ul > li a { color: #800000; text-decoration: underline; }
       main > section > ul > li.break-time { text-align: center; font-style: italic; color: #5a3a3a; padding: 0.5rem 0; }
+      
+      main > section > ul > li > .player-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 1rem; padding-left: 1rem; margin: 0.5rem 0; }
+      main > section > ul > li > .player-list > .player-card { background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.2); border-radius: 4px; text-align: center; padding: 0.5rem; transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; }
+      main > section > ul > li > .player-list > .player-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
+      main > section > ul > li > .player-list > .player-card > img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem; }
+      main > section > ul > li > .player-list > .player-card > .character-name { font-weight: bold; display: block; font-size: 1rem; }
+      main > section > ul > li > .player-list > .player-card > .player-name { font-size: 0.85rem; color: #5a3a3a; display: block; }
 
-      footer { margin-top: 3rem; font-style: italic; font-weight: bold; color: #5a3a3a; }
+      main > section > ul > li > .singer-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 0.5rem; padding-left: 1rem; margin-top: 0.5rem; }
+      main > section > ul > li > .singer-list > .singer-card { background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.2); border-radius: 4px; text-align: center; padding: 0.5rem; font-weight: bold; transition: transform 0.2s ease-out, background-color 0.2s ease-out; }
+      main > section > ul > li > .singer-list > .singer-card:hover { transform: scale(1.05); background-color: rgba(139, 69, 19, 0.15); }
+
+      footer { margin-top: 3rem; }
+      footer > p { font-style: italic; font-weight: bold; color: #5a3a3a; margin: 0; }
+      footer > .footer-decoration { transform: scaleY(-1); color: #8b4513; margin-top: 1rem; opacity: 0.7; }
+      footer > .footer-decoration > svg { width: 80%; max-width: 400px; height: auto; }
 
       @media (max-width: 600px) {
         #app { padding: 1rem; }
         #app > .invitation-card { padding: 1.5rem; }
         header > h1 { font-size: 2.2rem; }
         main > section > h2 { font-size: 1.8rem; }
+        main > section > ul > li > .player-list { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 0.5rem; }
+        main > section > ul > li > .player-list > .player-card > img { width: 60px; height: 60px; }
       }
     </style>
   </head>
@@ -51,50 +69,106 @@
     <div id="app">
       <div class="invitation-card">
         <header>
-          <h1>詭野西部豪俠召集令！</h1>
+          <div class="header-decoration">
+            <svg viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 H35 L40 2 L45 5 L50 0 L55 5 L60 2 L65 5 H100" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M50 0 L50 10 M49 10 H51" fill="none" stroke="currentColor" stroke-width="0.3"/></svg>
+          </div>
+          <h1>詭野西部夥伴召集令！</h1>
           <p class="subtitle">WWS3 線下活動邀請函</p>
         </header>
         <main>
-          <p class="greeting">嘿，各位夥伴！</p>
-          <p>塵土飛揚的西部荒野即將迎來一場傳奇聚會。備好你的左輪與骰子，我們將在現實世界中集結，展開一場史詩般的D&D冒險！</p>
+          <p class="greeting">嘿，各位命懸一線夥伴們！</p>
+          <p>風沙捎來了消息，一場傳奇的聚會即將在塵土飛揚的荒野中揭開序幕。是時候擦亮你的左輪、備好你的骰子了！我們將在現實世界中集結，展開一場史詩般的冒險！</p>
           <section class="itinerary">
-            <h2>當日行程</h2>
+            <h2>活動行程</h2>
             <ul>
               <li>
                 <strong>第一站：午後對決 (D&D 面團)</strong>
-                <p>時間：2025年10月18日 (星期六) 下午 1:00 - 5:00</p>
-                <p>地點：
-                  <a href="https://www.google.com/maps/search/?api=1&query=404台中市北區進化北路370號泰坦圓桌TRPG" target="_blank" rel="noopener noreferrer">泰坦圓桌 (台中市北區進化北路370號)</a>
-                </p>
-                <p>內容：我們將繼續深入惡地，尋找女神的遺骨，為破解亡命之輪的詛咒踏出堅實的一步。</p>
-                <p>ＤＭ：藍寶、霜葉</p>
-                <p>玩家：189、SOFA、alviss、pey、ping、ㄕㄩ、小熊、小米、璐璐、艾仕龍、蘭棋斯、路、阿玄、阿蚊、霜月 (15人)。</p>
-                <p>備註：玩家太多了，並且到時候適合同一團的成員有誰還未知，可能之後在分配？</p>
+                <p><strong>時間：</strong>2025年10月18日 (星期六) 下午 1:00 - 5:00</p>
+                <p><strong>地點：</strong><a href="https://maps.app.goo.gl/7pYmLYRL3DJShW9o7" target="_blank" rel="noopener noreferrer">泰坦圓桌 (台中市北區進化北路370號)</a></p>
+                <p><strong>內容：</strong>我們將繼續深入惡地，尋找女神的遺骨，為破解亡命之輪的詛咒踏出堅實的一步。</p>
+                <p><strong>ＤＭ：</strong>藍寶、霜葉</p>
+                <p><strong>第一組：</strong></p>
+                <div class="player-list">
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M7WyW0AA6CSi?format=png&name=360x360" alt="安琪"><span class="character-name">安琪</span><span class="player-name">ㄕㄩ</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M-SKXEAApJwB?format=png&name=360x360" alt="賽蓓爾"><span class="character-name">賽蓓爾</span><span class="player-name">小熊</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M0qoWcAEZUYK?format=png&name=360x360" alt="凡妮絲"><span class="character-name">凡妮絲</span><span class="player-name">璐璐</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M00JXIAADqn5?format=png&name=360x360" alt="蘭格倫"><span class="character-name">蘭格倫</span><span class="player-name">蘭棋斯</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/GuDJ3fPXIAAGjc7?format=png&name=360x360" alt="薇雅卡"><span class="character-name">薇雅卡</span><span class="player-name">路</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5MnIBXYAAY-ju?format=png&name=360x360" alt="費里昂"><span class="character-name">費里昂</span><span class="player-name">阿玄</span></div>
+                </div>
+                <p><strong>第二組：</strong></p>
+                <div class="player-list">
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M7ZIXQAEdJVy?format=png&name=360x360" alt="桔米"><span class="character-name">桔米</span><span class="player-name">ping</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M0pnbwAYL-Kq?format=png&name=small" alt="伊塔畢"><span class="character-name">伊塔畢</span><span class="player-name">WEN</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/GusRQ3dWEAA706N?format=png&name=360x360" alt="希托拉"><span class="character-name">希托拉</span><span class="player-name">小米</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gusy5gxbMAAXtMb?format=png&name=360x360" alt="阿班登"><span class="character-name">阿班登</span><span class="player-name">艾仕龍</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/GusSLUWXoAAAzPL?format=png&name=360x360" alt="奧林"><span class="character-name">奧林</span><span class="player-name">阿蚊</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5KqaOXkAAbi8X?format=png&name=small" alt="艾芙琳"><span class="character-name">艾芙琳</span><span class="player-name">霜月</span></div>
+                </div>
               </li>
               <li class="break-time">
                 <p>--- 休息與移動時間 (2小時) ---</p>
               </li>
               <li>
                 <strong>第二站：酒館狂歡 (KTV 歡唱)</strong>
-                <p>時間：2025年10月18日 (星期六) 晚上 7:00 - 1:00</p>
-                <p>地點：
+                <p><strong>時間：</strong>2025年10月18日 (星期六) 晚上 7:00 - 1:00</p>
+                <p><strong>地點：</strong>
                   <a href="https://www.google.com/maps/search/?api=1&query=403台中市西區臺灣大道二段16號凱悅YESKTV台中店" target="_blank" rel="noopener noreferrer">凱悅 YES KTV (台中市西區臺灣大道二段16號)</a>
                 </p>
-                <p>內容：放下武器，拿起麥克風！在歌聲與歡笑中，為我們一天的冒險劃下完美句號。</p>
-                <p>歌手：189、SOFA、alviss、pey、ping、ㄕㄩ、小熊、小米、蘭棋斯、路、阿玄、阿蚊、霜月、霜葉 (14人)。</p>
+                <p><strong>內容：</strong>放下武器，拿起麥克風！在歌聲與歡笑中，為我們一天的冒險劃下完美句號。</p>
+                <p><strong>歌手：</strong></p>
+                <div class="singer-list">
+                  <div class="singer-card">189</div><div class="singer-card">alviss</div><div class="singer-card">pey</div>
+                  <div class="singer-card">ping</div><div class="singer-card">SOFA</div><div class="singer-card">ㄕㄩ</div>
+                  <div class="singer-card">小熊</div><div class="singer-card">小米</div><div class="singer-card">蘭棋斯</div>
+                  <div class="singer-card">路</div><div class="singer-card">阿玄</div><div class="singer-card">阿蚊</div>
+                  <div class="singer-card">霜月</div><div class="singer-card">霜葉</div>
+                </div>
+              </li>
+              <li class="break-time">
+                <p>--- 喧囂落幕，靜待黎明 ---</p>
+              </li>
+              <li>
+                <strong>第三站：隔日再戰 (D&D 面團)</strong>
+                <p><strong>時間：</strong>2025年10月19日 (星期日) 下午 1:00 - 5:00</p>
+                <p><strong>地點：</strong><a href="https://maps.app.goo.gl/7pYmLYRL3DJShW9o7" target="_blank" rel="noopener noreferrer">泰坦圓桌 (台中市北區進化北路370號)</a></p>
+                <p><strong>內容：</strong>我們將繼續深入惡地，尋找女神的遺骨，為破解亡命之輪的詛咒踏出堅實的一步。</p>
+                <p><strong>ＤＭ：</strong>藍寶</p>
+                <p><strong>第三組：</strong></p>
+                <div class="player-list">
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/GuTRLXQboAAP8zL?format=png&name=360x360" alt="卡達絲"><span class="character-name">卡達絲</span><span class="player-name">189</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5KfRpXgAAmfZ-?format=png&name=360x360" alt="提洛"><span class="character-name">提洛</span><span class="player-name">alviss</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5MnHYbwAAjACu?format=png&name=360x360" alt="瑞尼克"><span class="character-name">瑞尼克</span><span class="player-name">pey</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5MrJhWAAA11Af?format=png&name=360x360" alt="凱雅"><span class="character-name">凱雅</span><span class="player-name">SOFA</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/Gt5M7W-XkAEPV3S?format=png&name=360x360" alt="托嘉"><span class="character-name">托嘉</span><span class="player-name">阿叛</span></div>
+                  <div class="player-card"><img src="https://pbs.twimg.com/media/GuX3w_wb0AAdYWA?format=png&name=360x360" alt="葛洛莉亞"><span class="character-name">葛洛莉亞</span><span class="player-name">霜葉</span></div>
+                </div>
               </li>
             </ul>
           </section>
           <section class="details">
             <h2>注意事項</h2>
             <ul>
-              <li>請攜帶你的角色卡、個人骰子以及一顆冒險的心。</li>
-              <li>歡迎穿戴任何具有西部風格的服飾或配件！</li>
+              <li>務必帶上你的角色卡、個人幸運骰，以及一顆準備好迎接任何挑戰的冒險之心。</li>
+              <li>歡迎穿戴任何具有西部風格的服飾或配件，讓我們一起把氣氛拉滿！</li>
+            </ul>
+          </section>
+          <section class="details">
+            <h2>住宿資訊</h2>
+            <ul>
+              <li>
+                <p><strong>日期：</strong>10月18日 (六) - 10月19日 (日)</p>
+                <p><strong>地點：</strong><a href="https://maps.app.goo.gl/KuzhcioW21S7sr8Z9" target="_blank" rel="noopener noreferrer">旅居文旅-台中文心館 (台中市北區漢口路四段86號)</a></p>
+                <p><strong>旅客：</strong>pey、189、阿玄、阿蚊</p>
+              </li>
             </ul>
           </section>
         </main>
         <footer>
-          <p>期待在夕陽下的決鬥場與你相見！</p>
+          <p>期待在夕陽下的決鬥場，與你再次相見！</p>
+          <div class="footer-decoration">
+            <svg viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 H35 L40 2 L45 5 L50 0 L55 5 L60 2 L65 5 H100" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M50 0 L50 10 M49 10 H51" fill="none" stroke="currentColor" stroke-width="0.3"/></svg>
+          </div>
         </footer>
       </div>
     </div>
