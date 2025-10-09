@@ -93,8 +93,10 @@
 
             this.state.haveHtml2canvas = html2canvas ? 1 : 2;
             if (this.state.haveHtml2canvas) {
-                // 讓 ui 有高度，否則無法截取
+                // 調整 ui 容器，否則無法截取
+                document.getElementById('vm-tabletop-ui-layer').style.width = '100vw';
                 document.getElementById('vm-tabletop-ui-layer').style.height = '100vh';
+                document.getElementById('vm-tabletop-ui-layer').style.position = 'fixed';
             }
         }
 
@@ -268,9 +270,11 @@
             if (this.state.shouldRestoreSidebar) {
                 document.querySelector(this.config.selectors.sidebarToggle).click();
             }
-            
+
             if (this.state.haveHtml2canvas) {
+                document.getElementById('vm-tabletop-ui-layer').style.width = null;
                 document.getElementById('vm-tabletop-ui-layer').style.height = null;
+                document.getElementById('vm-tabletop-ui-layer').style.position = null;
             }
         }
 
